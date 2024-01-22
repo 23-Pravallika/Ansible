@@ -1,4 +1,4 @@
- name: nameOfplay
+- name: nameOfplay
   hosts: all
   tasks: 
     - name: nameOftask
