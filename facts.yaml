@@ -3,4 +3,4 @@
   tasks: 
    - name: nameOftask
      ansible.builtin.debug:
-      msg: {{ansible_all_ipv4_addresses}}
+      msg: "{{ansible_all_ipv4_addresses}}""
