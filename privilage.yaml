@@ -8,6 +8,6 @@
 
    - name: Printing the id 
      ansible.builtin.debug: 
-      msg: "{{OUT}}"
+      msg: "{{OUT.stdout_lines}}"
      
 
