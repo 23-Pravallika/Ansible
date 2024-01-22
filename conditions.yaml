@@ -1,7 +1,8 @@
 - name: Demo on conditions 
   hosts: all
   vars:
-   action: true
+   - action: true
+   - action1: false
   tasks:
    - name: Execute this task when Distribution is CentOS
      ansible.builtin.debug:
@@ -13,3 +14,7 @@
       msg: Prints since the action value is true
      when: "{{action}}"    
 
+   - name: Execute this using true
+     ansible.builtin.debug:
+      msg: Prints since the action value is true
+     when: "{{action1}}"    
