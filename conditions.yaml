@@ -12,9 +12,9 @@
    - name: Execute this using true
      ansible.builtin.debug:
       msg: Prints since the action value is true
-     when: "{{action}}"    
+     when: action    
 
    - name: Execute this using true
      ansible.builtin.debug:
       msg: Prints since the action value is true
-     when: "{{action1}}"    
+     when: action1    
