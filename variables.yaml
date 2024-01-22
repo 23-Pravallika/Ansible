@@ -3,7 +3,7 @@
   vars_prompt:
    - name: PURL
      prompt: Enter the purl
-     private: false
+     private: true
   vars_files: vars-d.yaml 
   vars:
    URL: play.google.com 
