@@ -6,5 +6,5 @@
      register: OUT
    
    - name: Printing the Shell Output using OUT Variable
-      ansible.builtin.debug:
+     ansible.builtin.debug:
       msg: "{{OUT}}"
