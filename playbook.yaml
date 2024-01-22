@@ -12,3 +12,20 @@
     - name: Task1
       ansible.builtin.debug:
        msg: Printing the task1 from play1
+
+
+- name: play2
+  hosts: Dev
+  tasks:
+   - name: Only-Dev-Node
+     ansible.builtin.debug:
+      msg: Printing Only Dev node
+
+
+- name: play3
+  host:DevOps
+  tasks:
+   - name: Only-DevOps-Node
+     ansible.builtin.debug:
+      msg: Printing Only DevOps node
+
