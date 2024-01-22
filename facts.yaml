@@ -1,6 +1,6 @@
-- name: nameOfplay
+- name: facts
   hosts: all
   tasks: 
    - name: nameOftask
      ansible.builtin.debug:
-      msg: "{{macaddress}}""
+      msg: "{{macaddress}}"
