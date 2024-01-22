@@ -1,0 +1,7 @@
+- name: Demo of Ignore
+  hosts: all
+  tasks:
+   - name: Ignore
+     ansible.builtin.shell: ps -ef | grep centos
+
+     
