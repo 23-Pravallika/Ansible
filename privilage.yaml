@@ -1,0 +1,14 @@
+- name: Demo on privilege escalation
+  hosts: all
+  becomes: yes
+  tasks: 
+   - name: Check the user id 
+     ansible.builtin.shell: id
+     register: OUT
+
+   - name: Printing the id 
+     ansible.builtin.debug: 
+      msg: "{{OUT}}"
+     
+
+     
