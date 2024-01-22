@@ -2,6 +2,7 @@
   hosts: all
   tasks:
    - name: Ignore
-     ansible.builtin.shell: ps -ef | grep centos
+     ansible.builtin.shell: ps -ef | grep centos | grep -v grep
 
+     
      
