@@ -22,10 +22,10 @@
 
    - name: Execute this using not define
      ansible.builtin.debug:
-      msg: prints since the var is declared 
+      msg: prints since the var a is declared 
      when: a is defined   
 
    - name: Execute this using define
      ansible.builtin.debug:
-      msg: prins since the var is not declared
+      msg: prins since the var b is not declared
      when: b is not defined   
