@@ -1,0 +1,12 @@
+---
+
+Home: sweet         #dictionary
+name: any_name
+fruit:              # list
+  - apple
+  - grapes
+  - custard apple
+  - muskmelon
+Language :             # maps
+  perl: Elite
+  pythnon: Elite
