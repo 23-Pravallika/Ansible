@@ -24,9 +24,9 @@
 
    - name: Printing the variables from a file
      ansible.builtin.debug:
-      msg: "{{url}}"
+      msg: url variable in vars-d.yaml file {{url}}
 
    - name: Printing the variables from a file
      ansible.builtin.debug:
-      msg: "{{Game}}"
+      msg: game variable in vars-d.yaml file {{Game}}
 
