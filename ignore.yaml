@@ -4,10 +4,11 @@
    - name: Checking nginx
      ansible.builtin.shell: ps -ef | grep nginx | grep -v grep
      ignore_errors: yes
+    
+   - name: Chech user Id
+     ansible.builtin.shell: id
      register: OUT
 
-   
-  
-   - name: Printing the Shell Output using OUT Variable
-     ansible.builtin.debug:
+   - name: 
+     ansible.builtin.debug: 
       msg: "{{OUT}}"
