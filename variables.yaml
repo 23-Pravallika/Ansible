@@ -1,8 +1,8 @@
- - name: Demo on Using vars
-   hosts: all
-   vars:
-    URL: play.google.com
-   taska:
-    - name: varibles
-      ansible.builtin.debug:
-       msg: the varible is {{URL}}
+- name: Demo on Using vars
+  hosts: all
+  vars:
+   URL: play.google.com
+  tasks:
+   - name: varibles
+     ansible.builtin.debug:
+      msg: the varible is {{URL}}
