@@ -17,15 +17,15 @@
 
    - name: Execute this using true
      ansible.builtin.debug:
-      msg: skips since the action value is true
+      msg: skips since the action value is false
      when: action1    
 
    - name: Execute this using not define
      ansible.builtin.debug:
-      msg: skips since the var is declared 
-     when: a is not defined   
+      msg: prints since the var is declared 
+     when: a is defined   
 
    - name: Execute this using define
      ansible.builtin.debug:
       msg: prins since the var is not declared
-     when: b is defined   
+     when: b is not defined   
