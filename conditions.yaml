@@ -3,6 +3,7 @@
   vars:
    - action: true
    - action1: false
+   - a: 6
   tasks:
    - name: Execute this task when Distribution is CentOS
      ansible.builtin.debug:
@@ -18,3 +19,8 @@
      ansible.builtin.debug:
       msg: Prints since the action value is true
      when: action1    
+
+   - name: Execute this using true
+     ansible.builtin.debug:
+      msg: Prints since the action value using define
+     when: a is not defined   
