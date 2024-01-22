@@ -1,0 +1,6 @@
+- name: Demo on using register and Shell Module
+  hosts: all
+  tasks:
+   - name: Demo on using Shell Module
+     ansible.builtin.shell: uptime
+     
