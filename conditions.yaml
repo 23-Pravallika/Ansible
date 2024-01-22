@@ -20,7 +20,7 @@
       msg: Prints since the action value is true
      when: action1    
 
-   - name: Execute this using true
+   - name: Execute this using define
      ansible.builtin.debug:
-      msg: Prints since the action value using define
+      msg: Prints since the value of define
      when: a is not defined   
