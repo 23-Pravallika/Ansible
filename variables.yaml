@@ -13,4 +13,7 @@
      vars:
       URL: task.google.co
 
+   - name: Print the variable without string 
+     ansible.builtin.debug:
+      msg: "{{URL}}"
       
