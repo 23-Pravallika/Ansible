@@ -3,4 +3,4 @@
   tasks: 
    - name: nameOftask
      ansible.builtin.debug:
-      msg: "{{macaddress}}"
+      msg: Distribution of this machine is {{ansible_distribution}} 
