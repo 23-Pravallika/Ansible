@@ -23,7 +23,7 @@
 
 
 - name: play3
-  host:DevOps
+  hosts: DevOps
   tasks:
    - name: Only-DevOps-Node
      ansible.builtin.debug:
