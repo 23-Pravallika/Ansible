@@ -2,7 +2,7 @@
   hosts: all
   tasks:
    - name: Checking nginx
-     ansible.builtin.shell: ps -ef | grep nginx | grep -v grep
+     ansible.builtin.shell: ps -ef | grep nginx 
      register: OUT
 
    
