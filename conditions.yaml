@@ -1,6 +1,6 @@
 - name: Demo on conditions 
   hosts: all
-  var:
+  vars:
    action: true
   tasks:
    - name: Execute this task when Distribution is CentOS
