@@ -1,5 +1,9 @@
 - name: Demo on Using vars
   hosts: all
+  vars_prompt:
+   - name: PURL
+     prompt: Enter the purl
+     private: false
   vars_files: vars-d.yaml 
   vars:
    URL: play.google.com 
@@ -24,9 +28,12 @@
 
    - name: Printing the variables from a file
      ansible.builtin.debug:
-      msg: url variable in vars-d.yaml file {{url}}
+      msg: url variable in vars-d.yaml file is {{url}}
 
    - name: Printing the variables from a file
      ansible.builtin.debug:
-      msg: game variable in vars-d.yaml file {{Game}}
+      msg: game variable in vars-d.yaml file is {{Game}}
 
+   - name: Printing prompt url  
+     ansible.builtin.debug:
+      msg: "{{PURL}}"
