@@ -3,6 +3,14 @@
   vars:
    URL: play.google.com
   tasks:
-   - name: varibles
+   - name: Global varibles
      ansible.builtin.debug:
-      msg: the varible is {{URL}}
+      msg: Global varible is {{URL}}
+
+   - name: Local vars
+     ansible.builtin.debug:
+      msg: Local varible is {{URL}}
+     vars:
+      URL: task.google.co
+
+      
