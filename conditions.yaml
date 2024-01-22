@@ -20,7 +20,7 @@
       msg: skips since the action value is true
      when: action1    
 
-   - name: Execute this using define
+   - name: Execute this using not define
      ansible.builtin.debug:
       msg: skips since the var is declared 
      when: a is not defined   
