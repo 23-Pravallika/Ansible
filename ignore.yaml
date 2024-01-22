@@ -5,6 +5,6 @@
      ansible.builtin.shell: ps -ef | grep centos
      register: OUT
 
-    - name: Printing the Shell Output using OUT Variable
-      ansible.builtin.debug:
+   - name: Printing the Shell Output using OUT Variable
+     ansible.builtin.debug:
       msg: "{{OUT}}"
