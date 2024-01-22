@@ -1,10 +1,12 @@
 - name: Demo of Ignore
   hosts: all
   tasks:
-   - name: Ignore
-     ansible.builtin.shell: ps -ef | grep centos | grep -v grep
+   - name: Checking nginx
+     ansible.builtin.shell: ps -ef | grep nginx | grep -v grep
      register: OUT
 
+   
+  
    - name: Printing the Shell Output using OUT Variable
      ansible.builtin.debug:
       msg: "{{OUT}}"
