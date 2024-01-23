@@ -15,6 +15,7 @@
      register: OUT1
      become_user: centos
      
+   - name: printing the OUT1
      ansible.builtin.debug:
       msg: "{{OUT1}}"  
 
