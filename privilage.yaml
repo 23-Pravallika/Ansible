@@ -9,5 +9,12 @@
    - name: Printing the id 
      ansible.builtin.debug: 
       msg: "{{OUT.stdout_lines}}"
+
+   - name: Demo on running script as user
+     ansible.builtin.shell: id
+     register: OUT1
+     become_user: centos
      
+     ansible.builtin.debug:
+      msg: "{{OUT1}}"  
 
