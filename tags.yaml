@@ -1,18 +1,19 @@
-- name: Demo on using Tags 
+- name: Demo of Tags
   hosts: all
   tasks:
-    - name: frontend
-      ansible.builtin.debug:
-       msg: this is frontend
-      tag: frontend
-   
-    - name: backend/application
-      ansible.builtin.debug:
-       msg: this is backend
-      tag: backend
-   
-    - name: DataBase
-      ansible.builtin.debug:
-       msg: this is db
-      tag: db
+   - name: Frontend
+     ansible.builtin.debug:
+      msg: this is frontend
+     tag: frontend
+    
+   - name: Backend
+     ansible.builtin.debug:
+      msg: this is bakend
+     tag: backend
+
+   - name: DataBase
+     ansible.builtin.debug: 
+      msg: this is db
+     tag: db
+
      
