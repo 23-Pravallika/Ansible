@@ -10,4 +10,9 @@
      ansible.builtin.debug:
       msg: this is backend
      tag: backend
+
+   - name: DataBase
+     ansible.builtin.debug:
+      msg: this is db
+     tag: db
      
