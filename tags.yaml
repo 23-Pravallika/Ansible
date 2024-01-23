@@ -5,12 +5,12 @@
      ansible.builtin.debug:
       msg: this is frontend
      tag: frontend
-
+   
    - name: backend/application
      ansible.builtin.debug:
       msg: this is backend
      tag: backend
-
+   
    - name: DataBase
      ansible.builtin.debug:
       msg: this is db
