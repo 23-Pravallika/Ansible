@@ -3,6 +3,5 @@
   tasks:
    - name: Copying the files
      ansible.builtin.copy:
-      src: proxy
+      src: junk
       dest: /home/centos/proxy
-      
