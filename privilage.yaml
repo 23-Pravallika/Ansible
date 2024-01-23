@@ -17,5 +17,5 @@
      
    - name: printing the OUT1
      ansible.builtin.debug:
-      msg: "{{OUT1}}"  
+      msg: "{{OUT1.stdout}}"  
 
