@@ -4,16 +4,16 @@
    - name: Frontend
      ansible.builtin.debug:
       msg: this is frontend
-     tag: frontend
+     tags: frontend
     
    - name: Backend
      ansible.builtin.debug:
       msg: this is bakend
-     tag: backend
+     tags: backend
 
    - name: DataBase
      ansible.builtin.debug: 
       msg: this is db
-     tag: db
+     tags: db
 
-     
+
