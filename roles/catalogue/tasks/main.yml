@@ -1,0 +1,49 @@
+- name: Installing the nodejs repo
+  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | bash -
+
+- name: Installing NodeJS
+  ansible.builtin.package:
+    name: nodejs
+    state: present 
+
+- name: Creating user account
+  ansible.builtin.user:
+    name: "{{APPUSER}}"
+    comment: User account roboshop
+
+- name: Download and Extracting the Content
+  ansible.builtin.unarchive:
+    src: https://github.com/stans-robot-project/catalogue/archive/main.zip 
+    dest: /tmp
+    remote_src: yes
+
+- name:  Performing catalogue cleanup 
+  ansible.builtin.file:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/
+    state: absent
+
+- name: Copying the Content
+  ansible.builtin.copy:
+    src: /tmp/catalogue-main/
+    dest: /home/{{APPUSER}}/{{COMPONENT}}/
+    owner: "{{APPUSER}}"
+    group: "{{APPUSER}}"
+    remote_src: yes  
+
+- name: npm Install 
+  community.general.npm:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/
+
+- name: Copying systemd.service
+  ansible.builtin.copy:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+
+- name: Restart catalogue 
+  ansible.builtin.systemd_service:
+    name: "{{COMPONENT}}"
+    state: restarted
+    daemon_reload: true
+    enabled: true
+
