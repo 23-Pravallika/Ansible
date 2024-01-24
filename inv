@@ -1,6 +1,6 @@
 [frontend]
 frontend.internal.roboshop
 
-[mongodb]
+[mongo-db]
 mongo-db.internal.roboshop
 
