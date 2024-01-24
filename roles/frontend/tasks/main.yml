@@ -28,7 +28,7 @@
     #src: /tmp/frontend-main/localhost.conf   ---> we also use this method
     src: /robo.conf
     dest: /etc/nginx/default.d/roboshop.conf
-    remote_src: yes
+    
 
 
    
