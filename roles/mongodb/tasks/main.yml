@@ -8,7 +8,7 @@
     name: mongodb-org
     state: present
 
- name: Replacing IP address in the config file
+- name: Replacing IP address in the config file
   ansible.builtin.replace:
     path: /etc/mongod.conf
     regexp: '127.0.0.1'
@@ -35,4 +35,3 @@
     - users
 
 
-    
