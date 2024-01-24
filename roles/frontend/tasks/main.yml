@@ -6,12 +6,9 @@
 
 - name: Download and Extracting
   ansible.builtin.unarchive:
-    src: https://github.com/stans-robot-project/frontend/archive/main.zip  # it's going to download the url on remote machine and then coiped to /tmp 
-    dest: /tmp
-    remote_src: yes       # since we mentioned remote_src: yes that means we are telling the downloaded file is in remote server
-
-# if we didn't mention remote_src then the url will be downloaded on the local machine where the anisble is running
-
+    src: https://github.com/stans-robot-project/frontend/archive/main.zip  
+    remote_src: yes       
+    
 - name:  Performing frontend cleanup 
   ansible.builtin.file:
     path: /usr/share/nginx/html
