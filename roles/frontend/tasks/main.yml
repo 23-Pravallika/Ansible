@@ -1,11 +1,33 @@
-- name: frontend
-  hosts: all
-  become: yes
-  tasks:
-   - name: Installing nginx
-     ansible.builtin.package:
-      name: nginx
-      state: present
+
+- name: Installing nginx
+  ansible.builtin.package:
+    name: nginx
+    state: present
+
+- name: Download and Extracting
+  ansible.builtin.unarchive:
+    src: https://github.com/stans-robot-project/frontend/archive/main.zip  # it's going to download the url on remote machine and then coiped to /tmp 
+    dest: /tmp
+    remote_src: yes       # since we mentioned remote_src: yes that means we are telling the downloaded file is in remote server
+
+# if we didn't mention remote_src then the url will be downloaded on the local machine where the anisble is running
+
+- name:  Performing frontend cleanup 
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: Copying frontend content
+  ansible.builtin.copy:
+    src: /tmp/frontend-main/static/
+    dest: /usr/share/nginx/html
+    remote_src: yes
+
+- name: Copying frontend content
+  ansible.builtin.copy:
+    src: /usr/share/nginx/html/localhost.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+    remote_src: yes
 
 
-
+   
