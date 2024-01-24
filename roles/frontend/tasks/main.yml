@@ -25,10 +25,10 @@
 
 - name: Copying frontend content
   ansible.builtin.copy:
-    src: /usr/share/nginx/html/frontend-main/localhost.conf   #---> we also use this method
-    #src: 
+    #src: /tmp/frontend-main/localhost.conf   ---> we also use this method
+    src: /robo.conf
     dest: /etc/nginx/default.d/roboshop.conf
-    remote_src: yes
+    
 
 
    
