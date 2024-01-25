@@ -11,7 +11,7 @@
 
 - name: starting redis
   ansible.builtin.service:
-    name: redis
+    name: rabbitmq-server
     state: started
     enabled: yes
 
