@@ -1,6 +1,27 @@
 - name: Erlang dependency and YUM repositories
   ansible.builtin.shell: |
-    - curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
-    - curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
+    curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
+    curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
 
+
+- name: Installing RabbitMQ
+  ansible.builtin.package:
+    name: rabbitmq-server
+    state: present
+
+- name: starting redis
+  ansible.builtin.service:
+    name: redis
+    state: started
+    enabled: yes
+
+- name: create RabbitMQ user
+  community.rabbitmq.rabbitmq_user:
+    user: roboshop 
+    password: roboshop123
+    vhost: /
+    configure_priv: .*
+    read_priv: .*
+    write_priv: .*
+    state: present
 
