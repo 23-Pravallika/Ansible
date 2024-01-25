@@ -1,7 +1,7 @@
-- name: calling Nodejs task from common role
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: nodejs
+- name: Creating a Roboshop User Account 
+  ansible.builtin.user:
+    name: "{{APPUSER}}" 
+    comment: Roboshop User Account
 
 
     
