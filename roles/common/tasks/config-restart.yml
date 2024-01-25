@@ -5,7 +5,7 @@
 
 
 - name: Restartig {{COMPONENT}} service
-  ansible.builtin.systemd_service:
+  ansible.builtin.systemd:
     state: restarted
     daemon_reload: true
     enabled: yes
