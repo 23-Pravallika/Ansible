@@ -13,3 +13,9 @@ redis.internal.roboshop
 [user]
 user.internal.roboshop
 
+[cart]
+cart.internal.roboshop
+
+[rabbitmq]
+rabbitmq.internal.roboshop
+
