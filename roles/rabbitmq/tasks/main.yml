@@ -1,8 +1,8 @@
-- name: Erlang dependency and YUM repositories
-  ansible.builtin.shell: |
-    curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
-    curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
+- name: Configuring Erlang repo 
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
 
+- name: Configuring RabbitMQ repo 
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
 
 - name: Installing RabbitMQ
   ansible.builtin.package:
