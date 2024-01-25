@@ -21,7 +21,7 @@
 
 - name: npm Install 
   community.general.npm:
-    path: /home/{{APPUSER}}/{{COMPONENT}}/
+    path: /home/{{APPUSER}}/{{COMPONENT}}
 
 
 # calling config-restart task from the common role
