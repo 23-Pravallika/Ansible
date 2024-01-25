@@ -1,0 +1,32 @@
+- name: Installing the nodejs repo
+  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | bash -
+
+- name: Installing NodeJS
+  ansible.builtin.package:
+    name: nodejs
+    state: present 
+
+
+# calling create_user task from common role
+- name: calling create_user task from common role
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: create_user
+
+# calling download_extract task from the common role
+- name: calling download_extract task from common
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download_extract
+
+- name: npm Install 
+  community.general.npm:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/
+
+
+# calling config-restart task from the common role
+- name: calling config-restart role from common
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: config-restart
+
