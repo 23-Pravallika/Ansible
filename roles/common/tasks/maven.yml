@@ -1,0 +1,24 @@
+- name: Installing Maven
+  ansible.builtin.package:
+    name: maven
+    state: present
+
+- name: create_user 
+  ansible.builtin.include_role:
+    name: common 
+    tasks_from: create_user
+
+- name: Download and Extract
+  ansible.builtin.include_role:
+    name: common 
+    tasks_from: download_extract
+
+- name: maven claen package
+  ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar
+  args:
+    chdir: /home/{{APPUSER}}/{{COMPONENT}}/
+
+- name: config-restart 
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: config-restart
