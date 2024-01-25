@@ -4,7 +4,7 @@
     dest: /etc/systemd/system/{{COMPONENT}}.service
 
 
-- name: Restart service
+- name: Restartig {{COMPONENT}} service
   ansible.builtin.systemd_service:
     name: "{{COMPONENT}}"
     state: restarted
