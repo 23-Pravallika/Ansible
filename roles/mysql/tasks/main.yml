@@ -1,0 +1,25 @@
+- name: Copying mysql repo
+  ansible.builtin.copy:
+    src: mysql-repo
+    dest: /etc/yum.repos.d/mysql.repo
+
+- name: Installing MySQL
+  ansible.builtin.package:
+    name: mysql-community-server
+
+- name: Starting MySQL
+  ansible.builtin.systemd:
+    state: started
+    daemon_reload: true
+    enabled: yes
+    name: mysqld
+ 
+- name: Collect all info except settings and users by root
+  community.mysql.mysql_info:
+    config_file: /var/log/mysqld.log
+  register: logs
+    
+- name: logs in mysqld.log
+  ansible.builtin.debug:
+    msg: "{{logs}}"
+
