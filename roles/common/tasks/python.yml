@@ -32,5 +32,5 @@
 - name: Installing the dependencies
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
-    executable: pip3.3
+    executable: pip3
 
