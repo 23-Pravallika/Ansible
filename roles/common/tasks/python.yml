@@ -16,5 +16,16 @@
     name: common
     tasks_from: download_extract
 
-- name: Install the dependencies
-  
+- name: Fetch uid and Replace 
+  ansible.builtin.lineinfile:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^uid'
+    line: uid={{APPUSERINFO.uid}}
+
+- name: Fetch gid and Replace 
+  ansible.builtin.replace:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^gid'
+    replace: gid={{APPUSERINFO.uid}}
+
+
