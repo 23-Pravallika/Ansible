@@ -19,9 +19,9 @@
 - name: Loading the file from the remote node
   ansible.builtin.slurp:
     src: /var/log/mysqld.log
-  register: logs   
+  register: mysql_log   
     
 - name: logs in mysqld.log
   ansible.builtin.debug:
-    msg: "{{logs}}"
+    msg: "{{mysql_log}}"
 
