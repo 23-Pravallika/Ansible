@@ -21,7 +21,7 @@
     src: /var/log/mysqld.log
   register: mysql_log   
     
-- name: logs in mysqld.log
+- name: Print returned information
   ansible.builtin.debug:
-    msg: "{{mysql_log}}"
+    msg: "{{ mysql_log['content'] | b64decode }}"
 
