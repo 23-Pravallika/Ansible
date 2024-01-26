@@ -8,6 +8,7 @@
     name: 
       - mysql-community-server
       - MySQL-python
+      - PyMySQL
 
 - name: Starting MySQL
   ansible.builtin.systemd:
@@ -18,7 +19,7 @@
  
 - name: Check the default password 
   block: 
-    - name: Get MySQL version with non-default credentials
+    - name: connect to MySQL                      #Get MySQL version with non-default credentials
       community.mysql.mysql_info:
         login_user: root 
         login_password: RoboShop@1
@@ -32,7 +33,7 @@
 
     - name: Fetching the password and assigning it to a variable 
       ansible.builtin.set_fact:
-          DEFAULT_PASSWORD: "{{ mysql_log['content'] | b64decode | regex_findall('.*temporary password.*') | join(' ') |split(' ') | last }}"
+        DEFAULT_PASSWORD: "{{ mysql_log['content'] | b64decode | regex_findall('.*temporary password.*') | join(' ') |split(' ') | last }}"
 
     - name: Changing MySQL Password 
       ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
@@ -44,7 +45,7 @@
 - name: Download the schema 
   ansible.builtin.include_role:
     name: common 
-    tasks_from: download 
+    tasks_from: download_extract
 
 - name: Injecting the schema 
   community.mysql.mysql_db:
