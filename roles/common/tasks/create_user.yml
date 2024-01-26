@@ -4,6 +4,3 @@
     comment: Roboshop User Account
   register: APPUSERINFO
 
-- name: Creating a Roboshop User Account 
-  ansible.builtin.debug:  
-    msg: "{{APPUSERINFO}}"
