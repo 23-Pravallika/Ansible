@@ -5,7 +5,9 @@
 
 - name: Installing MySQL
   ansible.builtin.package:
-    name: mysql-community-server
+    name: 
+      - mysql-community-server
+      - MySQL-python
 
 - name: Starting MySQL
   ansible.builtin.systemd:
