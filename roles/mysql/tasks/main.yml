@@ -23,5 +23,5 @@
     
 - name: Print returned information
   ansible.builtin.debug:
-    msg: "{{ mysql_log['content'] | b64decode | regex_findall('.*temporary password.*' | join(' ') |split(' ') |last)}}"
+    msg: "{{ mysql_log['content'] | b64decode | regex_findall('.*temporary password.*' | join(' ') |split(' ') | last)}}"
 
