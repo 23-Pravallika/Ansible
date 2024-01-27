@@ -26,11 +26,11 @@
   #    ansible.builtin.debug:
   #     msg: "{{CMD_URL}}"
 
-   - name: Printing the variables from a file
+   - name: Printing the variables from a separate vars-d.yaml file
      ansible.builtin.debug:
       msg: url variable in vars-d.yaml file is {{url}}
 
-   - name: Printing the variables from a file
+   - name: Printing the variables from a separate vars-d.yaml file
      ansible.builtin.debug:
       msg: game variable in vars-d.yaml file is {{Game}}
 

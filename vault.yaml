@@ -1,0 +1,18 @@
+# whenever we are having sensitive pieces of info in the code and it is in the git so need to secure the info we use ansible vault
+
+#using the vault we can encrypt
+
+- name: Demo  on vault 
+  hosts: localhost 
+  vars: 
+    PASSWORD: !vault |
+                        $ANSIBLE_VAULT;1.1;AES256
+                        36653633383935643165366563366136663032623137623061363034623963623132666533306138
+                        3061666561636261346563386463353264653838316162620a313632316462343235343938333239
+                        32633466663036313163636630326561363466616365333866613863396236656636633531376465
+                        3631663130303830320a333837306237376334613162633536306336383164663438306337396137
+                        3563
+  tasks:
+    - name: Demo on secret 
+      ansible.builtin.debug: 
+        msg: PASSWORD = {{PASSWORD}}
