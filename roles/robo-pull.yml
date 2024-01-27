@@ -1,0 +1,5 @@
+- name: Demo on ansible pull
+  hosts: localhost
+  become: yes
+  roles:
+    - "{{COMPONENT}}"
