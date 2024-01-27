@@ -8,7 +8,7 @@
     name: 
       - mysql-community-server
       - MySQL-python
-      - PyMySQL
+      #- PyMySQL
 
 - name: Starting MySQL
   ansible.builtin.systemd:
