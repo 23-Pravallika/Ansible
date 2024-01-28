@@ -16,3 +16,6 @@
     - name: Demo on secret 
       ansible.builtin.debug: 
         msg: PASSWORD = {{PASSWORD}}
+
+
+# this is demo on vault
