@@ -22,10 +22,10 @@ pipeline {
                  branch pattern: "PR-.*", comparator: "REGEXP"
             }
             steps{
-            sh "env"
-            sh "ansible-playbook -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=mongodb -e ENV=qa robo-dryrun.yaml"
+                sh "env"
+                sh "ansible-playbook -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=mongodb -e ENV=qa robo-dryrun.yaml"
+            }
         }
-    }
         // stage('Promotion To Prod Branch'){
         //     when {
         //         branch pattern: "main"
