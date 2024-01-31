@@ -6,16 +6,16 @@ pipeline {
     }
     stages{
         
-        stage('Performing Lint Check'){
-            when {
-                branch pattern: "feature-.*", comparator: "REGEXP"
-            }
-            steps{
-                sh "env"
-                sh "echo This step should run against non-main branches only"
-                sh "echo PERFORMING LINT CHECKSS"
-            }
-        }
+        // stage('Performing Lint Check'){
+        //     when {
+        //         branch pattern: "feature-.*", comparator: "REGEXP"
+        //     }
+        //     steps{
+        //         sh "env"
+        //         sh "echo This step should run against non-main branches only"
+        //         sh "echo PERFORMING LINT CHECKSS"
+        //     }
+        // }
 
         stage('Performing Ansible Dry Run'){
             when {
@@ -26,10 +26,10 @@ pipeline {
             sh "ansible-playbook -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=mongodb -e ENV=qa robo-dryrun.yaml"
         }
     }
-        stage('Promotion To Prod Branch'){
-            when {
-                branch pattern: "main"
-            }
-        }
+        // stage('Promotion To Prod Branch'){
+        //     when {
+        //         branch pattern: "main"
+        //     }
+        // }
 }
 }
