@@ -27,10 +27,13 @@ pipeline {
             }
         }
 
-        // stage('Promotion To Prod Branch'){
-        //     when {
-        //         branch pattern: "main"
-        //     }
-        // }
+        stage('Promotion To Prod Branch'){
+            when {branch pattern: "main"}
+            steps {
+                sh "env"
+                sh "echo printing"
+                sh "echo main - PROMOTING To PRODUCTION"
+            }
+        }
     }
 }
