@@ -28,7 +28,7 @@ pipeline {
         }
 
         stage('Promotion To Prod Branch'){
-            when { tag pattern: ".*", comparator: "REGEXP"}
+            when {expression { env.TAG_NAME == ".*" }}
             steps{
                 sh "env"
                 sh "echo printing"
