@@ -28,8 +28,11 @@ pipeline {
         }
 
         stage('Promotion To Prod Branch'){
-            when {
-                branch pattern: "main"
+            when { tag pattern: ".*", comparator: "REGEXP"}
+            steps{
+                sh "env"
+                sh "echo printing"
+                sh "echo main - PROMOTING To PRODUCTION"
             }
         }
     }
