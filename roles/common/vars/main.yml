@@ -1,2 +1,2 @@
 APPUSER: roboshop
-
+secret : "{{ lookup('amazon.aws.aws_secret', 'robo/secret', region='us-east-1') }}"

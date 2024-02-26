@@ -32,7 +32,7 @@
 - name: Installing the dependencies
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
-    executable: pip3
+    executable: pip3.6
 
 - name: Calling config-restart
   ansible.builtin.include_role:
