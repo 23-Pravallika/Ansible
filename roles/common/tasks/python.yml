@@ -16,7 +16,7 @@
 - name: Downloading Artifacts
   ansible.builtin.include_role:
     name: common
-    tasks_from: download_and_extract
+    tasks_from: download_extract
 
 # - name: Downloading Artifacts From Nexus
 #   ansible.builtin.include_role:
@@ -43,5 +43,5 @@
 - name: Configuring and Starting Service
   ansible.builtin.include_role:
     name: common
-    tasks_from: config_svc
+    tasks_from: config-restart
 
