@@ -23,7 +23,7 @@
     line: uid={{APPUSERINFO.uid}}
 
 - name: Fetch gid and Replace 
-  ansible.builtin.replace:
+  ansible.builtin.lineinfile:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^gid'
     line: gid={{APPUSERINFO.group}}
