@@ -27,13 +27,13 @@
   ansible.builtin.lineinfile:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini 
     regexp: '^uid'
-    line: uid = {{USERINFO.uid}}
+    line: uid = {{APPUSERINFO.uid}}
 
 - name: Updating the GID in file 
   ansible.builtin.lineinfile:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini 
     regexp: '^gid'
-    line: gid = {{USERINFO.group}}
+    line: gid = {{APPUSERINFO.group}}
 
 - name: Installing app dependencies
   ansible.builtin.pip:
