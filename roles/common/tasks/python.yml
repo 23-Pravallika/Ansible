@@ -26,13 +26,13 @@
   ansible.builtin.replace:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^gid = 1'
-    replace: gid={{APPUSERINFO.group}}
+    line: gid={{APPUSERINFO.group}}
 
 
-- name: Installing the dependencies
+- name: Install Application Dependencies 
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
-    executable: pip3.6
+    executable: pip3
 
 - name: Calling config-restart
   ansible.builtin.include_role:
