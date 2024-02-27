@@ -13,6 +13,14 @@
     name: common
     tasks_from: create_user
 
+- name: Install boto3 and botocore with pip3 module
+    pip:
+      path: /home/{{APPUSER}}
+      name: 
+      - boto3
+      - botocore
+      executable: pip-3.6
+
 #Downloading .pem file 
 - name: Downloading .pem file
   ansible.builtin.get_url:
