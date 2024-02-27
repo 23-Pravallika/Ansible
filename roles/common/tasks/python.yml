@@ -1,41 +1,47 @@
-- name: Installing Python 3
+- name: Installing Python
   ansible.builtin.package:
-    name:
+    name: 
       - python36 
-      - gcc
+      - gcc 
       - python3-devel 
-    state: present
+    state: present  
 
-- name: Calling create_user 
-  ansible.builtin.include_role:
-    name: common 
-    tasks_from: create_user
-
-- name: calling download_extract 
+- name: Creating User Account 
   ansible.builtin.include_role:
     name: common
-    tasks_from: download_extract
+    tasks_from: create_user
 
-- name: Fetch uid and Replace 
+
+## Uncomment this if you want to use the artifacts from Github
+- name: Downloading Artifacts
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download_and_extract
+
+# - name: Downloading Artifacts From Nexus
+#   ansible.builtin.include_role:
+#     name: common
+#     tasks_from: download_from_nexus
+
+- name: Updating the UID in {{COMPONENT}}.ini file 
   ansible.builtin.lineinfile:
-    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
+    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini 
     regexp: '^uid'
-    line: uid={{APPUSERINFO.uid}}
+    line: uid = {{USERINFO.uid}}
 
-- name: Fetch the GID and replace it in the file 
+- name: Updating the GID in {{COMPONENT}}.ini file 
   ansible.builtin.lineinfile:
-    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
+    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini 
     regexp: '^gid'
-    line: uid = {{APPUSERINFO.group}}
-
+    line: gid = {{USERINFO.group}}
 
 - name: Installing app dependencies
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt 
     executable: pip3
 
-- name: Calling config-restart
+- name: Configuring and Starting Service
   ansible.builtin.include_role:
-    name: common 
-    tasks_from: config-restart
+    name: common
+    tasks_from: config_svc
 
