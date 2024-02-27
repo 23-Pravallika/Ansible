@@ -22,8 +22,9 @@
 
 - name: Install boto3 and botocore with pip3 module
   ansible.builtin.shell:
+    cmd: sudo su - {{APPUSER}}
     cmd: pip install botocore
-  become_user : "{{APPUSER}}"
+  
 
 #Downloading .pem file 
 - name: Downloading .pem file
