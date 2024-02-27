@@ -29,11 +29,11 @@
     line: uid = {{APPUSERINFO.group}}
 
 
-- name: Install Application Dependencies 
+- name: Installing app dependencies
   ansible.builtin.pip:
-    requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
-    executable: pip3
-
+    requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt 
+    executable: pip3.6
+    
 - name: Calling config-restart
   ansible.builtin.include_role:
     name: common 
