@@ -23,13 +23,13 @@
 #     name: common
 #     tasks_from: download_from_nexus
 
-- name: Updating the UID in {{COMPONENT}}.ini file 
+- name: Updating the UID in file 
   ansible.builtin.lineinfile:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini 
     regexp: '^uid'
     line: uid = {{USERINFO.uid}}
 
-- name: Updating the GID in {{COMPONENT}}.ini file 
+- name: Updating the GID in file 
   ansible.builtin.lineinfile:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini 
     regexp: '^gid'
