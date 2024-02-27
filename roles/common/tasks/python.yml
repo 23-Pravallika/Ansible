@@ -25,7 +25,7 @@
 - name: Fetch gid and Replace 
   ansible.builtin.replace:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
-    regexp: '^gid = 1'
+    regexp: '^gid'
     line: gid={{APPUSERINFO.group}}
 
 
