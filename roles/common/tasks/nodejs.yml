@@ -15,7 +15,6 @@
 
 - name: Install boto3 and botocore with pip3 module
     pip:
-      path: /home/{{APPUSER}}
       name: 
       - boto3
       - botocore
