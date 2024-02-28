@@ -18,7 +18,7 @@
 #       name: 
 #       - boto3
 #       - botocore
-#       executable: pip-3.6
+#       executable: pip
 
 #Downloading .pem file 
 - name: Downloading .pem file
