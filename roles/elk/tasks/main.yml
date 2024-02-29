@@ -1,0 +1,17 @@
+# Task 1 :  Copy the logStash config file from the logStash Server and put it in the tempaltes 
+# Task 2 :  Copy that template to the logStash server after doing the changes 
+# Task 3 :  Restart the logstash server and wait till logStash comes up. 
+# Task 4 :  Tag the input as JSON by our logstash.
+
+- name: Copying Logstash Config 
+  ansible.builtin.template:
+    src: logstash.conf
+    dest: /etc/logstash/conf.d/logstash.conf
+ 
+
+- name: starting logstash
+  ansible.builtin.service:
+    name: logstash
+    state: restarted
+    enabled: yes
+
