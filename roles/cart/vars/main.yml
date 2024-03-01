@@ -1,3 +1,5 @@
 APPUSER: roboshop
 COMPONENT: cart
+LOGTYPE: json
+
 
