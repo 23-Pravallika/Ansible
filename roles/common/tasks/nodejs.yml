@@ -45,3 +45,8 @@
     name: common
     tasks_from: config-restart
 
+- name: Configuring rsyslog
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: rsyslog
+
