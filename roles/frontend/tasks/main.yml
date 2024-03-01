@@ -31,4 +31,8 @@
     name: nginx
     state: started
     enabled: yes
-   
+
+- name: Configuring filebeat
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat
