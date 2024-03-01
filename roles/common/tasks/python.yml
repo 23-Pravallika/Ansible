@@ -50,3 +50,8 @@
   ansible.builtin.include_role:
     name: elk
     tasks_from: rsyslog
+
+- name: Configuring filebeat
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat

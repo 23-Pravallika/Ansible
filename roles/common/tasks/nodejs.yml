@@ -45,8 +45,14 @@
     name: common
     tasks_from: config-restart
 
-- name: Configuring rsyslog
+- name: Configuring rsyslog            #This will configure the rules to route the logs to the intended file
   ansible.builtin.include_role:
     name: elk
     tasks_from: rsyslog
 
+- name: Configuring filebeat           # This will install beats on all the servers.
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat
+
+    
