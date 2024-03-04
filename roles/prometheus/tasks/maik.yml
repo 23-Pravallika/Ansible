@@ -3,12 +3,10 @@
     src: prometheus.yml
     dest: /opt/prometheus/prometheus.yml
  
-
 - name: starting prometheus
   ansible.builtin.service:
     name: prometheus
     state: restarted
-
 
 - name: Waiting for the prometheus port to come up
   ansible.builtin.wait_for:
