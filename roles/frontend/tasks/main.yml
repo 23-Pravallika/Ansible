@@ -42,3 +42,9 @@
   ansible.builtin.include_role:
     name: elk
     tasks_from: filebeat
+
+- name: Configuring filebeat           # This will install node-exporter on all the servers.
+  ansible.builtin.include_role:
+    name: prometheus
+    tasks_from: node-exporter
+
