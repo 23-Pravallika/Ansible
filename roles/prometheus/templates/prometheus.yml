@@ -38,3 +38,4 @@ scrape_configs:
 # 1) Give a network range to be monitored 
 # 2) Since the machines are already on AWS, we can let our Premetheus Server Query the nodes and fetch the information.
 #    Monitor only the nodes that are having label as  ( prometheus-monitor : yes )
+
