@@ -29,7 +29,7 @@ scrape_configs:
       - source_labels: [__meta_ec2_private_ip]
         target_label: private_ip
       - source_labels: [__meta_ec2_tag_Name]
-        target_label: instance
+        target_label: instance_name
 
 # I have hardcoded telling to monitor server -x and server -y by giving the IP Address of the servers.
 # What if if your servers comes up and destroys dynamically.
