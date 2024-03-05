@@ -21,7 +21,7 @@ scrape_configs:
         port: 9100
         filters:
           - name: "tag:prometheus-monitor"
-            values: ["yes", "Yes", "YES",]
+            values: ["yes", "Yes", "YES"]
     
     relabel_configs:
       - source_labels: [__meta_ec2_instance_id]
