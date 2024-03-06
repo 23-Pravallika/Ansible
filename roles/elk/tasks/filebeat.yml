@@ -1,0 +1,26 @@
+- name: Download and install the public signing key
+  ansible.builtin.shell: sudo rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
+
+- name: Copying elastic repo 
+  ansible.builtin.template:
+    src: elastic.repo
+    dest: /etc/yum.repos.d/elastic.repo
+
+- name: Installing filebeat 
+  ansible.builtin.yum:
+    name: filebeat 
+    state: present
+
+- name: Copying filebeat conf 
+  ansible.builtin.template:
+    src: filebeat.yml
+    dest: /etc/filebeat/filebeat.yml
+
+- name: starting filebeat
+  ansible.builtin.service:
+    name: filebeat
+    state: restarted
+    enabled: yes
+    daemon_reload: true
+
+

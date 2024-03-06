@@ -28,8 +28,8 @@ pipeline {
         }
 
         stage('Promotion To Prod Branch'){
-            when {expression { env.TAG_NAME == ".*" }}
-            steps{
+            when { expression { env.TAG_NAME == ".*" }}
+            steps {
                 sh "env"
                 sh "echo printing"
                 sh "echo main - PROMOTING To PRODUCTION"
@@ -37,4 +37,5 @@ pipeline {
         }
     }
 }
+
 

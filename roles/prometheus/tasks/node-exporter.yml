@@ -1,0 +1,3 @@
+- name: Installing Node_Exporter
+  ansible.builtin.shell: curl -s https://gitlab.com/thecloudcareers/opensource/-/raw/master/prom-node-exporter-install.sh?ref_type=heads | sudo bash
+    

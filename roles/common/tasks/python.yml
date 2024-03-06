@@ -1,41 +1,62 @@
-- name: Installing Python 3
-  ansible.builtin.package:
+- name: Installing Python And Dependencies
+  ansible.builtin.yum:
     name:
-      - python36 
+      - python36
       - gcc
-      - python3-devel 
+      - python3-devel
     state: present
 
-- name: Calling create_user 
+# Calling User Task from common role
+- name: Calling Create User Role From Common
   ansible.builtin.include_role:
     name: common 
     tasks_from: create_user
 
-- name: calling download_extract 
+- name: Calling Download and Extract Role From Common
   ansible.builtin.include_role:
-    name: common
+    name: common 
     tasks_from: download_extract
 
-- name: Fetch uid and Replace 
+
+# - name: Calling Download and Extract Role From Common
+#   ansible.builtin.include_role:
+#     name: common 
+#     tasks_from: download-from-nexus
+
+- name: Fetch the UID and replace it in the file 
   ansible.builtin.lineinfile:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^uid'
-    line: uid={{APPUSERINFO.uid}}
+    line: uid = {{APPUSERINFO.uid}}
 
-- name: Fetch gid and Replace 
-  ansible.builtin.replace:
+- name: Fetch the GID and replace it in the file 
+  ansible.builtin.lineinfile:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
-    regexp: '^gid = 1'
-    replace: gid={{APPUSERINFO.group}}
+    regexp: '^gid'
+    line: uid = {{APPUSERINFO.group}}
 
-
-- name: Installing the dependencies
+- name: Install Application Dependencies 
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
     executable: pip3
 
-- name: Calling config-restart
+# Call Configure Service Role
+- name: Calling Config Service Role From Common
   ansible.builtin.include_role:
     name: common 
-    tasks_from: config-restart
+    tasks_from: config-restart 
 
+- name: Configuring rsyslog
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: rsyslog
+
+- name: Configuring filebeat
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat
+
+- name: Configuring filebeat           # This will install node-exporter on all the servers.
+  ansible.builtin.include_role:
+    name: prometheus
+    tasks_from: node-exporter

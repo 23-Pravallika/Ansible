@@ -22,3 +22,18 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: config-restart
+
+- name: Configuring rsyslog
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: rsyslog
+
+- name: Configuring filebeat
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat
+
+- name: Configuring filebeat           # This will install node-exporter on all the servers.
+  ansible.builtin.include_role:
+    name: prometheus
+    tasks_from: node-exporter
